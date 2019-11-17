@@ -1,0 +1,71 @@
+<svg class="screen">
+  <svg id="battery" class="text-left">
+    <image class="icon sm" y="2" />
+    <text>--</text>
+  </svg>
+
+  <svg class="container">
+
+    <svg class="row lg">
+      <svg class="col text-center">
+        <!-- <rect class="bg red" /> -->
+        <text id="time" />
+      </svg>
+    </svg>
+
+    <svg class="row">
+      <svg class="col text-center" id="calendar">
+        <text id="day" />
+        <text id="date" />
+      </svg>
+
+      <line class="hr bottom" />
+    </svg>
+
+    <svg class="row sm">
+      <!-- <rect class="bg blue" /> -->
+      <svg class="col-2" id="steps">
+        <image class="icon" x="12" />
+        <text>--</text>
+      </svg>
+
+      <svg class="col-2" id="heart-rate">
+        <image class="icon" x="12" />
+        <rect class="icon" x="12" fill-opacity="1" fill="black" width="24" pointer-events="visible">
+          <animate attributeName="opacity" repeatCount="indefinite" begin="load" from="0" to="0.8" dur="1" final="restore" />
+        </rect>
+        <text>--</text>
+      </svg>
+
+      <line class="hr bottom" />
+    </svg>
+
+    <svg class="row sm">
+      <!-- <rect class="bg blue" /> -->
+      <svg class="col-2" id="floors">
+        <image class="icon" x="12" />
+        <text>--</text>
+      </svg>
+
+      <svg class="col-2" id="active-minutes">
+        <image class="icon" x="12" />
+        <text>--</text>
+      </svg>
+
+      <line class="hr bottom" />
+    </svg>
+
+    <svg class="row sm">
+      <!-- <rect class="bg blue" /> -->
+      <svg class="col-2" id="calories">
+        <image class="icon" x="12" />
+        <text>--</text>
+      </svg>
+
+      <svg class="col-2" id="distance">
+        <image class="icon" x="12" />
+        <text>--</text>
+      </svg>
+    </svg>
+  </svg>
+</svg>

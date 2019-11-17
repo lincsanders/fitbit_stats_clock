@@ -1,0 +1,20 @@
+msgid "monday"
+msgstr "måndag"
+
+msgid "tuesday"
+msgstr "tisdag"
+
+msgid "wednesday"
+msgstr "onsdag"
+
+msgid "thursday"
+msgstr "torsdag"
+
+msgid "friday"
+msgstr "fredag"
+
+msgid "saturday"
+msgstr "lördag"
+
+msgid "sunday"
+msgstr "söndag"

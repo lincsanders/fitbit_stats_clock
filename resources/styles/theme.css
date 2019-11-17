@@ -1,0 +1,62 @@
+/* Reset.css lololol */
+text { font-size: 24; font-family: System-Light; font-size: 24; fill: white; text-length: 16; }
+
+/* Grid System */
+.screen { width: 100%; height: 100%; fill: white; }
+
+.container {
+  width: 100%;
+  height: 100%;
+  fill: white;
+}
+
+.row {
+  width: 100%;
+  height: 72;
+  x: 0;
+  y: $;
+}
+
+.row.lg { height: 96; }
+.row.lg text { font-size: 76; y: 100%-16; }
+.row.lg image { width: 74; height: 74; x: $+3; y: 11; }
+.row.sm { height: 42; }
+.row.sm text { font-size: 24; x: $+8; y: 100%-13; }
+.row.sm image { width: 24; height: 24; x: $+3; y: 9; }
+
+.col { width: 100%; height: 100%; x: $; y: 0; }
+.col-1 { width: 100%; height: 100%; x: $; y: 0; }
+.col-2 { width: 50%; height: 100%; x: $; y: 0; }
+.col-3 { width: 33%; height: 100%; x: $; y: 0; }
+.col-4 { width: 25%; height: 100%; x: $; y: 0; }
+.col-5 { width: 20%; height: 100%; x: $; y: 0; }
+
+/* Text */
+.row text { font-size: 48; x: 5; y: 100%-8; text-anchor: start; width: 100%; }
+.text-left text { text-anchor: start; }
+.text-center text { text-anchor: middle; x: 50%; }
+.text-right text { text-anchor: end; x: 100%-5; }
+
+/* Backgrounds */
+rect.bg {
+  width: 100%;
+  height: 100%;
+  x: 0;
+  y: 0;
+}
+
+rect.bg.red { fill: red; }
+rect.bg.blue { fill: blue; }
+rect.bg.cyan { fill: cyan; }
+rect.bg.teal { fill: teal; }
+rect.bg.linen { fill: linen; }
+
+/* Elements? hr, br, etc */
+
+line.hr { fill: white; height: 1; x1: 10; x2: 100%-10; }
+
+line.hr.top { y1: 0; y2: 0; }
+line.hr.bottom { y1: 100%-1; y2: 100%-1; }
+
+.icon { width: 32; height: 32; }
+.icon.sm { width: 16; height: 16; }

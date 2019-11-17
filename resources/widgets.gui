@@ -1,0 +1,9 @@
+<svg>
+  <defs>
+    <link rel="stylesheet" href="styles/theme.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    
+    <link rel="import" href="/mnt/sysassets/widgets_common.gui" />
+    <link rel="import" href="widgets/indicator.gui" />
+  </defs>
+</svg>
