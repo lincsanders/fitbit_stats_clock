@@ -23,46 +23,52 @@ export default class HeartRate extends BaseIndicator {
       return;
     }
 
+    this.icons = {
+      incomplete: "icons/stat_hr_open_32px.png",
+      complete: "icons/stat_hr_solid_32px.png",
+    };
+
+    super();
+
+    this.icon = 'incomplete';
+
     this.heartRate = new HeartRateSensor();
+    this.bodyPresenceSensor = new BodyPresenceSensor();
+
     this.heartRate.addEventListener("reading", () => {
-      this.amount = this.heartRate.heartRate;
-      this.update();
+      if (this.bodyPresenceSensor.present) {
+        if (this.amount != this.heartRate.heartRate) {
+          this.amount = this.heartRate.heartRate;
+          this.update();
+        }
+      }
     });
 
-    this.bodyPresenceSensor = new BodyPresenceSensor();
     this.bodyPresenceSensor.addEventListener("reading", () => {
       if (!this.bodyPresenceSensor.present) {
+        console.log('Body Sensor DISCONNECTED');
         this.heartRate.stop();
         this.update();
       } else {
+        console.log('Body Sensor CONNECTED');
         this.heartRate.start();
       }
     });
 
     this.bodyPresenceSensor.start();
-
-    this.incompleteIcon = "icons/stat_hr_open_32px.png";
-    this.completeIcon = "icons/stat_hr_solid_32px.png";
-
-    super();
   }
 
   update () {
     if (
-      !this.element ||
-      !this.amount
+      !this.element
     ) {
       return;
     }
 
-    if (!this.bodyPresenceSensor.present) {
-      for (const i in this.texts) {
-        this.texts[i].text = '--';
-      }
+    if (!this.amount || !this.bodyPresenceSensor.present) {
+      this.text = '--';
     } else {
-      for (const i in this.texts) {
-        this.texts[i].text = this.amount.toLocaleString(locale.language);
-      }
+      this.text = this.amount.toLocaleString(locale.language);
     }
 
     // Custom implementation of update

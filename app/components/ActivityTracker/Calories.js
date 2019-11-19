@@ -19,8 +19,10 @@ export default class Calories extends BaseIndicator {
       return;
     }
 
-    this.incompleteIcon = "icons/stat_cals_open_32px.png";
-    this.completeIcon = "icons/stat_cals_solid_32px.png";
+    this.icons = {
+      incomplete: "icons/stat_cals_open_32px.png",
+      complete: "icons/stat_cals_solid_32px.png",
+    };
 
     super();
   }
@@ -32,6 +34,8 @@ export default class Calories extends BaseIndicator {
 
     this.amount = today.adjusted.calories;
     this.goal = goals.calories;
+
+    this.text = this.amount.toLocaleString(locale.language);
 
     super.update();
   }

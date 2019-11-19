@@ -19,8 +19,10 @@ export default class Distance extends BaseIndicator {
       return;
     }
 
-    this.incompleteIcon = "icons/stat_dist_open_32px.png";
-    this.completeIcon = "icons/stat_dist_solid_32px.png";
+    this.icons = {
+      incomplete: "icons/stat_dist_open_32px.png",
+      complete: "icons/stat_dist_solid_32px.png",
+    }
 
     super();
   }
@@ -33,7 +35,7 @@ export default class Distance extends BaseIndicator {
     this.amount = today.adjusted.distance;
     this.goal = goals.distance;
 
-    this.amountText = parseFloat(this.amount / 1000).toFixed(2) + " km"
+    this.text = parseFloat(this.amount / 1000).toFixed(2) + " km"
 
     super.update();
   }

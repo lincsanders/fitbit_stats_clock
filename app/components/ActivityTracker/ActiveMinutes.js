@@ -19,8 +19,10 @@ export default class ActiveMinutes extends BaseIndicator {
       return;
     }
 
-    this.incompleteIcon = "icons/stat_am_open_32px.png";
-    this.completeIcon = "icons/stat_am_solid_32px.png";
+    this.icons = {
+      incomplete: "icons/stat_am_open_32px.png",
+      complete: "icons/stat_am_solid_32px.png",
+    };
 
     super();
   }
@@ -33,7 +35,7 @@ export default class ActiveMinutes extends BaseIndicator {
     this.amount = today.adjusted.activeMinutes;
     this.goal = goals.activeMinutes;
 
-    this.amountText = this.amount + " min"
+    this.text = this.amount + " min"
 
     super.update();
   }

@@ -19,8 +19,10 @@ export default class Steps extends BaseIndicator {
       return;
     }
 
-    this.incompleteIcon = "icons/stat_steps_open_32px.png";
-    this.completeIcon = "icons/stat_steps_solid_32px.png";
+    this.icons = {
+      incomplete: "icons/stat_steps_open_32px.png",
+      complete: "icons/stat_steps_solid_32px.png",
+    };
 
     super();
   }
@@ -32,6 +34,8 @@ export default class Steps extends BaseIndicator {
 
     this.amount = today.adjusted.steps;
     this.goal = goals.steps;
+
+    this.text = this.amount.toLocaleString(locale.language);
 
     super.update();
   }

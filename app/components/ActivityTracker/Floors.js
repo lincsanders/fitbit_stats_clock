@@ -14,14 +14,16 @@ export default class Floors extends BaseIndicator {
     if (
       !this.element ||
       !appbit.permissions.granted("access_activity") ||
-      !today.local.elevationGain
+      today.local.elevationGain === undefined
     ) {
       console.log('Floors disabled!');
       return;
     }
 
-    this.incompleteIcon = "icons/stat_floors_open_32px.png";
-    this.completeIcon = "icons/stat_floors_solid_32px.png";
+    this.icons = {
+      incomplete: "icons/stat_floors_open_32px.png",
+      complete: "icons/stat_floors_solid_32px.png",
+    }
 
     super();
   }
@@ -34,7 +36,7 @@ export default class Floors extends BaseIndicator {
     this.amount = today.adjusted.elevationGain;
     this.goal = goals.elevationGain;
 
-    this.amountText = this.amount + " floors";
+    this.text = this.amount + " floors";
 
     super.update();
   }

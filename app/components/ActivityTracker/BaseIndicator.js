@@ -4,24 +4,46 @@ export default class BaseIndicator {
   constructor () {
     this.goalReached = false;
 
-    this.texts = this.element.getElementsByTagName('text');
-    this.icons = this.element.getElementsByTagName('image');
+    this.label = this.element.getElementsByTagName('text')[0];
+    this.image = this.element.getElementsByTagName('image')[0];
 
-    this.setIconIncomplete();
+    this._text = '';
+    this._icon = null;
+    this.icons = this.icons || {};
 
     this.update();
   }
 
-  setIconIncomplete () {
-    for (const i in this.icons) {
-      this.icons[i].href = this.incompleteIcon;
+  set icon (icon) {
+    if (this.icons[icon] === undefined) {
+      return;
     }
+
+    if (this._icon === icon) {
+      return;
+    }
+
+    if (!icon) {
+      return;
+    }
+
+    this.image.href = this._icon = this.icons[icon];
   }
 
-  setIconComplete () {
-    for (const i in this.icons) {
-      this.icons[i].href = this.completeIcon;
+  get icon () {
+    return this._icon;
+  }
+
+  set text (text) {
+    if (this._text === text) {
+      return;
     }
+
+    this.label.text = this._text = text;
+  }
+
+  get text () {
+    return this._text;
   }
 
   update () {
@@ -29,18 +51,18 @@ export default class BaseIndicator {
       return;
     }
 
-    for (const i in this.texts) {
-      this.texts[i].text = this.amountText || this.amount.toLocaleString(locale.language);
-    }
+    const hasReachedGoal = this.amount >= this.goal;
 
-    if (!this.goalReached && (this.amount >= this.goal)) {
-      this.goalReached = true;
-      this.setIconComplete();
-    }
+    if (hasReachedGoal !== this.goalReachedForToday) {
+      if (hasReachedGoal) {
+        this.goalReached = true;
+        this.icon = 'complete';
+      } else {
+        this.goalReached = false;
+        this.icon = 'incomplete';
+      }
 
-    if (this.goalReached && (this.amount < this.goal)) {
-      this.goalReached = true;
-      this.setIconComplete();
+      this.goalReachedForToday = hasReachedGoal;
     }
   }
 }

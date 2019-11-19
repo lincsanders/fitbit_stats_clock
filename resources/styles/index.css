@@ -1,13 +1,13 @@
 #calendar #day {
   font-size: 24;
   y: 50%-12;
-  fill: lightskyblue;
+  fill: lightblue;
 }
 
 #calendar #date {
   y: 100%-24;
   font-size: 24;
-  fill: lightskyblue;
+  fill: lightblue;
 }
 
 #time {
@@ -27,5 +27,5 @@
 }
 
 line.hr {
-  fill: lightskyblue;
+  fill: lightblue;
 }
