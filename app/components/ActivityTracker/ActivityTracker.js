@@ -12,7 +12,9 @@ import HeartRate from './HeartRate';
 import * as util from "../../../common/utils";
 
 export default class ActivityTracker {
-  constructor () {
+  constructor (settings) {
+    this.settings = settings;
+
     // Does it's own updating, no need to put in the update function
     this.heartRate = new HeartRate(document.getElementById('heart-rate'));
 
@@ -21,7 +23,7 @@ export default class ActivityTracker {
     this.floors = new Floors(document.getElementById('floors'));
     this.activeMinutes = new ActiveMinutes(document.getElementById('active-minutes'));
     this.calories = new Calories(document.getElementById('calories'));
-    this.distance = new Distance(document.getElementById('distance'));
+    this.distance = new Distance(settings, document.getElementById('distance'));
   }
 
   update (e) {

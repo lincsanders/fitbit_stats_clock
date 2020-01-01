@@ -6,9 +6,11 @@ import TimeDisplay from "./TimeDisplay";
 import DateDisplay from "./DateDisplay";
 
 export default class Clock {
-  constructor (timeElement, dateElement) {  
-    this.timeDisplay = new TimeDisplay(timeElement);
-    this.dateDisplay = new DateDisplay(dateElement);
+  constructor (settings, timeElement, dateElement) {
+    this.settings = settings;
+
+    this.timeDisplay = new TimeDisplay(settings, timeElement);
+    this.dateDisplay = new DateDisplay(settings, dateElement);
 
     clock.granularity = "seconds";
 
@@ -16,8 +18,8 @@ export default class Clock {
       this.onTick(e);
     }
   }
-  
-  onTick (e) {      
+
+  onTick (e) {
     this.timeDisplay.update(e);
     this.dateDisplay.update(e);
   }

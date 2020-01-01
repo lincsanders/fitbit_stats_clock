@@ -1,10 +1,12 @@
 import { battery, charger } from "power";
 
 export default class Battery {
-  constructor (element) {
+  constructor (settings, element) {
     if (!element) {
       console.log('Battery not enabled!');
     }
+
+    this.settings = settings;
 
     this.element = element;
 

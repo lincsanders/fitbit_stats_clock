@@ -2,7 +2,7 @@
   "fitbit": {
     "appUUID": "a12f25e0-f6c4-45ff-a365-91d3038177f5",
     "appType": "clockface",
-    "appDisplayName": "Stats Clock",
+    "appDisplayName": "Minimal Stats Clock",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [

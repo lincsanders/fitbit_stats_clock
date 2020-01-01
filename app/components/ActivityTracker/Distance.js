@@ -8,7 +8,8 @@ import * as util from "../../../common/utils";
 import BaseIndicator from './BaseIndicator';
 
 export default class Distance extends BaseIndicator {
-  constructor (element) {
+  constructor (settings, element) {
+    this.settings = settings;
     this.element = element;
 
     if (
@@ -35,7 +36,11 @@ export default class Distance extends BaseIndicator {
     this.amount = today.adjusted.distance;
     this.goal = goals.distance;
 
-    this.text = parseFloat(this.amount / 1000).toFixed(2) + " km"
+    if (this.settings.get('use_miles')) {
+      this.text = parseFloat(this.amount / 1609.34).toFixed(2) + " mi"
+    } else {
+      this.text = parseFloat(this.amount / 1000).toFixed(2) + " km"
+    }
 
     super.update();
   }
