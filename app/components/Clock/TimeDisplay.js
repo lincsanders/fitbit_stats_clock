@@ -14,7 +14,13 @@ export default class TimeDisplay {
     const minutes = util.zeroPad(date.getMinutes());
     const seconds = util.zeroPad(date.getSeconds());
 
-    if (preferences.clockDisplay === "12h") {
+    try {
+      this.time_format = this.settings.get('time_format').values[0].name;
+    } catch (e) {
+      this.time_format = '24 Hour';
+    }
+
+    if (this.time_format === "AM/PM") {
       hours = hours % 12 || 12;
     } else {
       hours = util.zeroPad(hours);

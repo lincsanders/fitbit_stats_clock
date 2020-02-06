@@ -15,6 +15,11 @@ export default class DateDisplay {
 
     this.container.getElementById('day').style.fill = this.settings.get('day_color') || 'lightblue';
     this.container.getElementById('date').style.fill = this.settings.get('date_color') || 'lightblue';
+    try {
+      this.date_format = this.settings.get('date_format').values[0].name;
+    } catch (e) {
+      this.date_format = 'YYYY-MM-DD';
+    }
 
     const days = {
       0: 'sunday',
@@ -26,11 +31,33 @@ export default class DateDisplay {
       6: 'saturday',
     };
 
-    const dateString = [
-      date.getFullYear(),
-      util.zeroPad(date.getMonth()+1),
-      util.zeroPad(date.getDate())
-    ].join('-');
+    if (this.date_format === 'YYYY-MM-DD') {
+      const dateString = [
+        date.getFullYear(),
+        util.zeroPad(date.getMonth()+1),
+        util.zeroPad(date.getDate()),
+      ].join('-');
+    } else if (this.date_format === 'DD/MM/YYYY') {
+      const dateString = [
+        util.zeroPad(date.getDate()),
+        util.zeroPad(date.getMonth()+1),
+        date.getFullYear(),
+      ].join('/');
+    } else if (this.date_format === 'MM/DD/YYYY') {
+      const dateString = [
+        util.zeroPad(date.getMonth()+1),
+        util.zeroPad(date.getDate()),
+        date.getFullYear(),
+      ].join('/');
+    } else {
+      // Default?
+      const dateString = [
+        date.getFullYear(),
+        util.zeroPad(date.getMonth()+1),
+        util.zeroPad(date.getDate()),
+      ].join('-');
+    }
+
     const dayString = t(days[day]).toUpperCase();
 
     this.container.getElementById('day').text = dayString;
