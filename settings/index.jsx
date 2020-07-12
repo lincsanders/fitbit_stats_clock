@@ -21,7 +21,8 @@ function Settings(props) {
           options={[
             { name: "YYYY-MM-DD" },
             { name: "DD/MM/YYYY" },
-            { name: "MM/DD/YYYY" }
+            { name: "MM/DD/YYYY" },
+            { name: "DD.MM.YYYY"}
           ]}
         />
 
