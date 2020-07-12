@@ -2,6 +2,7 @@ import document from "document";
 import { preferences, locale } from "user-settings";
 import { me as appbit } from "appbit";
 import { today, goals } from "user-activity";
+import { gettext as t } from "i18n";
 
 import * as util from "../../../common/utils";
 
@@ -36,7 +37,7 @@ export default class Floors extends BaseIndicator {
     this.amount = today.adjusted.elevationGain;
     this.goal = goals.elevationGain;
 
-    this.text = this.amount + " floors";
+    this.text = this.amount + " " + t("floors");
 
     super.update();
   }
