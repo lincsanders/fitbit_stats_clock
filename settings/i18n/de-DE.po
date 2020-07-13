@@ -1,0 +1,29 @@
+msgid "settings"
+msgstr "Einstellungen"
+
+msgid "title"
+msgstr "Minimal Stats Clock Einstellungen"
+
+msgid "back"
+msgstr "Zurück"
+
+msgid "done"
+msgstr "Erledigt"
+
+msgid "use_miles"
+msgstr "Meilen verwenden?"
+
+msgid "show_seconds"
+msgstr "Sekunden anzeigen?"
+
+msgid "date_format"
+msgstr "Datumsformat"
+
+msgid "time_format"
+msgstr "Zeitformat"
+
+msgid "day_color"
+msgstr "Farbe: Wochentag"
+
+msgid "date_color"
+msgstr "Farbe: Datum"
