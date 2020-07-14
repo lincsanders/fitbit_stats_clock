@@ -1,0 +1,23 @@
+msgid "monday"
+msgstr "Montag"
+
+msgid "tuesday"
+msgstr "Dienstag"
+
+msgid "wednesday"
+msgstr "Mittwoch"
+
+msgid "thursday"
+msgstr "Donnerstag"
+
+msgid "friday"
+msgstr "Freitag"
+
+msgid "saturday"
+msgstr "Samstag"
+
+msgid "sunday"
+msgstr "Sonntag"
+
+msgid "floors"
+msgstr "Etagen"

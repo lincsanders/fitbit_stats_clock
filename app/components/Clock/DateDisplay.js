@@ -49,7 +49,14 @@ export default class DateDisplay {
         util.zeroPad(date.getDate()),
         date.getFullYear(),
       ].join('/');
-    } else {
+    } else if (this.date_format === 'DD.MM.YYYY') { 
+    const dateString = [
+      util.zeroPad(date.getDate()),
+      util.zeroPad(date.getMonth()+1),
+      date.getFullYear(),
+    ].join('.');
+    }
+    else {
       // Default?
       const dateString = [
         date.getFullYear(),
